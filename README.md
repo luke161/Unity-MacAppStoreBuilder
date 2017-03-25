@@ -38,5 +38,8 @@ Launch *Application Loader*, choose the *.pkg* you just created and start the su
 
 You're done! For future builds you only need to repeat steps 7 & 8.
 
+## Notes
+1. When creating an OSX build for the Mac App Store, make sure you have *Mac App Store Validation* enabled in *Player settings*.
+
 ## Useful Links
 <https://docs.unity3d.com/Manual/HOWTO-PortToAppleMacStore.html>

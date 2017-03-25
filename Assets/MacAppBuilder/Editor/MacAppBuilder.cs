@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.iOS.Xcode;
+using UnityEditor.Callbacks;
 
 public static class MacAppBuilder 
 {
@@ -24,6 +25,16 @@ public static class MacAppBuilder
 		string iconsPath = EditorUtility.OpenFolderPanel("Select Icon Set Folder","","UnityPlayer.iconset");
 		if(!string.IsNullOrEmpty(iconsPath)) CreateIconSet(iconsPath);
 	}
+
+	/*
+	[PostProcessBuildAttribute(1)]
+	public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject) 
+	{
+		if(target==BuildTarget.StandaloneOSXUniversal || target==BuildTarget.StandaloneOSXIntel || target==BuildTarget.StandaloneOSXIntel64){
+			Build(pathToBuiltProject);
+		}
+	}
+	*/
 
 	public static void Build(string applicationPath)
 	{

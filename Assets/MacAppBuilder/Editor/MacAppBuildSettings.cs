@@ -2,9 +2,15 @@
 using UnityEditor;
 using System.Collections;
 
+/**
+ * MacAppBuildSettings.cs
+ * Author: Luke Holland (http://lukeholland.me/)
+ */
+
 public class MacAppBuildSettings : ScriptableObject
 {
 
+	public string bundleIdentifier = "";
 	public string applicationCategory = "public.app-category.games";
 	public string applicationDescription = "[YEAR] [YOUR COMPANY NAME]. All rights reserved.";
 
@@ -38,6 +44,7 @@ public class MacAppBuildSettings : ScriptableObject
 public class MacAppBuildSettingsEditor : Editor
 {
 
+	private SerializedProperty _propertyBundleIdentifier;
 	private SerializedProperty _propertyApplicationCategory;
 	private SerializedProperty _propertyApplicationDescription;
 	private SerializedProperty _propertyProvisioningProfileApplication;
@@ -47,6 +54,7 @@ public class MacAppBuildSettingsEditor : Editor
 
 	public void OnEnable()
 	{
+		_propertyBundleIdentifier = serializedObject.FindProperty("bundleIdentifier");
 		_propertyApplicationCategory = serializedObject.FindProperty("applicationCategory");
 		_propertyApplicationDescription = serializedObject.FindProperty("applicationDescription");
 		_propertyProvisioningProfileApplication = serializedObject.FindProperty("provisioningProfileApplication");
@@ -60,6 +68,7 @@ public class MacAppBuildSettingsEditor : Editor
 		serializedObject.Update();
 
 		EditorGUILayout.LabelField("Application Settings",EditorStyles.boldLabel);
+		EditorGUILayout.PropertyField(_propertyBundleIdentifier,new GUIContent("Bundle Indentifier"));
 		EditorGUILayout.PropertyField(_propertyApplicationCategory,new GUIContent("Category"));
 		EditorGUILayout.PropertyField(_propertyApplicationDescription,new GUIContent("Description"));
 

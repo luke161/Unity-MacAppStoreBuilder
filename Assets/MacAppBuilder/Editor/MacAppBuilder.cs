@@ -7,6 +7,11 @@ using UnityEditor;
 using UnityEditor.iOS.Xcode;
 using UnityEditor.Callbacks;
 
+/**
+ * MacAppBuilder.cs
+ * Author: Luke Holland (http://lukeholland.me/)
+ */
+
 public static class MacAppBuilder 
 {
 
@@ -61,8 +66,8 @@ public static class MacAppBuilder
 		info.ReadFromFile(infoPlistPath);
 
 		PlistElementDict root = info.root;
-		root.SetString("CFBundleSignature",PlayerSettings.bundleIdentifier);
-		root.SetString("CFBundleIdentifier",PlayerSettings.bundleIdentifier);
+		root.SetString("CFBundleSignature",settings.bundleIdentifier);
+		root.SetString("CFBundleIdentifier",settings.bundleIdentifier);
 		root.SetString("CFBundleGetInfoString",settings.applicationDescription);
 		root.SetString("LSApplicationCategoryType",settings.applicationCategory);
 		root.SetString("CFBundleShortVersionString",PlayerSettings.bundleVersion);

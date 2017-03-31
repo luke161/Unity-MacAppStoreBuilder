@@ -2,7 +2,7 @@
 Unity plugin to build and package apps for the Mac App Store. The tools included in this plugin can take an existing OSX app built with Unity and repackage it for Mac App store submission.
 
 ## Requirements
-* Unity (Built and testing with Unity 5.5)
+* Unity (Built and tested with Unity 5.5)
 * XCode (Tested with 8.2.1)
 * Application Loader (included with XCode)
 * Apple Developer account
